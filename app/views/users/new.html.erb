@@ -40,6 +40,24 @@
 =end%>
 
 
+<%= form_for @user do |f| %>
+ <div>
+    <%= f.label :username, 'Your user name here' %>
+    <%= f.text_field :username, default_value: 'Enter name', required: 'required' %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email, placeholder: 'email@email.com', required: 'required' %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password, required: 'required' %>
+  </div>
+  <br/>
+  <%= f.submit 'Create' %>
+
+<% end %>
+
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -50,21 +68,4 @@
     <% end %>
     </ul>
   </div>
-<% end %>
-
-<%= form_for @user do |f| %>
-  <%= f.label :username, 'Your user name here' %>
-  <%= f.text_field :username, value: 'Enter name' %>
-
-  <br/>
-  <%= f.label :email %>
-  <%= f.email_field :email, placeholder: 'email@email.com' %>
-
-  <br/>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <br/>
-  <%= f.submit 'Create' %>
-
 <% end %>
