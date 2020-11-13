@@ -1,4 +1,4 @@
-<h1>Users new</h1>
+<h1>Users edit</h1>
 
 
 <%# <form method = "post" action = "/users" accept-charset = "UTF-8" >
@@ -40,18 +40,19 @@
 =end%>
 
 <%= form_for @user do |f| %>
-  <%= f.label :username, 'Your user name here' %>
-  <%= f.text_field :username, value: 'Enter name' %>
-
+ <div>
+    <%= f.label :username, 'Your user name here' %>
+    <%= f.text_field :username, default_value: 'Enter name' %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email, placeholder: 'email@email.com' %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
   <br/>
-  <%= f.label :email %>
-  <%= f.email_field :email, placeholder: 'email@email.com' %>
-
-  <br/>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <br/>
-  <%= f.submit 'Create' %>
+  <%= f.submit 'Update' %>
 
 <% end %>
