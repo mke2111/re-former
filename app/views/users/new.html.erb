@@ -17,20 +17,38 @@
 
 </form> %>
 
-<%= form_tag("/users", method: "post") do %>
-  <%= label_tag(:username, "Username: ") %>
-  <%= text_field_tag(:username) %>
-  <br />  
-  <br />  
-  
-  <%= label_tag(:email, "E-mail: ") %>
-  <%= email_field(:user, :email) %>
-  <br />
-  <br />  
-  
-  <%= label_tag(:password, "Password: ") %>
-  <%= password_field_tag(:password) %>
-  <br />
-  <br />  
-  <%= submit_tag("Create") %>
+<%
+=begin%>
+  <%= form_tag("/users", method: "post") do %>
+    <%= label_tag(:username, "Username: ") %>
+    <%= text_field_tag(:username) %>
+    <br />  
+    <br />  
+    
+    <%= label_tag(:email, "E-mail: ") %>
+    <%= email_field(:user, :email) %>
+    <br />
+    <br />  
+    
+    <%= label_tag(:password, "Password: ") %>
+    <%= password_field_tag(:password) %>
+    <br />
+    <br />  
+    <%= submit_tag("Create") %>
+  <% end %>
+<%
+=end%>
+
+<%= form_for @user do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.submit 'Create' %>
+
 <% end %>
